@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
 //connect to database
-$oDb = new PDO("sqlite:" . __DIR__ . "/../gardener.sqlite");
+$oDb = new PDO("sqlite:" . __DIR__ . "/../KmgDb.sqlite");
 $oApp = new \Slim\Slim(array(
         'view' => new \PHPView\PHPView(),
         'templates.path' => __DIR__ . "/../views" ));
