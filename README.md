@@ -7,3 +7,7 @@ The ball is back in your court. I added a login test2/Secret6503. You need to in
 thanks
 
 Rich
+
+P.S. : Modified footer, added external links in it, swapped about an d index pages, aligned text on the new about page
+
+Mansi
