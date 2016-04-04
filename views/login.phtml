@@ -3,62 +3,87 @@ $this->data["title"] = "Kitchener Master Gardeners";
 $this->layout("_layout.phtml");
 ?>
 
-<body>
+<script>
 
-        <!-- Top content -->
-        <div class="top-content">
+    var app = angular.module("myApp", []);
+    app.controller("myController", function ($scope, $http) {
+        $scope.sBtnPrompt = "Next";
+        $scope.sInputType = "text";
+        $scope.sLabel = "Username";
+        $scope.loginNext = function(){
+            var shaObj = new jsSHA("SHA-512", "TEXT");
+            if($scope.sInputType == "text"){
+                shaObj.update($scope.sInput);
+                $scope.uname = shaObj.getHash("HEX");
+                $http.get("/salt/" + $scope.uname).success(function(sData){
+                    $scope.sSalt = sData.salt;
+                    $scope.sBtnPrompt = "Login";
+                    $scope.sInputType = "password";
+                    $scope.sLabel = "Password";
+                    $scope.sInput = "";
+                    
+                })
+            }else{
+                shaObj.update($scope.sUname + $scope.sSalt + $scope.sInput);
+                var sSha1 = shaObj.getHash("HEX");
+                $http.get("/checklogin/" + $scope.uname + "/" + sSha1).success(function(sData){
+                    $scope.sName = sData.name;
+                    alert("Welcome " + $scope.sName);
+                    $scope.sInput = "";
+                })
+            }
+        }
+    });
 
-            <div class="inner-bg">
-                <div class="container">
 
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top-left">
-                        			<h3 class="header">Members Login</h3>
-                                </div>
-                        		<div class="form-top-right">
-                        			<i class="fa fa-key"></i>
-                        		</div>
-                            </div>
-                            <div class="form-bottom">
-			                    <form name="form1" method="post" action="checklogin" class="login-form">
-                                    <div class="form-group">
+</script>
 
-                                        <center><img data-src="holder.js/40x40" src="/images/icon.jpg" class="img-circle"></center>
-			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="myusername" placeholder="Username..." class="form-username form-control" id="myusername">
-                                    </div>
-			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="text" name="mypassword" placeholder="Password..." class="form-password form-control" id="mypassword">
+<!-- Top content -->
+<div ng-app="myApp" ng-controller="myController" class="top-content">
 
-			                        </div>
-			                        <button type="submit" class="btn" name="Submit">Sign in!</button>
+    <div class="inner-bg">
+        <div class="container">
 
-			                    </form>
-		                    </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3 class="header">Members Login</h3>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-key"></i>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-6 col-sm-offset-3 social-login">
-                        	<h3>...or login with:</h3>
-                        	<div class="social-login-buttons">
-	                        	<a class="btn btn-link-1 btn-link-1-facebook" href="http://m.facebook.com/Kitchener-Master-Gardeners-10424583522480005">
-	                        		<i class="fa fa-facebook"></i> Facebook
-	                        	</a>
-	                        	<a class="btn btn-link-1 btn-link-1-twitter" href="#">
-	                        		<i class="fa fa-twitter"></i> Twitter
-	                        	</a>
+                    <div class="form-bottom">
+                        <form ng-submit="loginNext()" class="login-form" ng-cloak>
+                            <div class="form-group">
 
-                        	</div>
-                        </div>
+                                <center><img data-src="holder.js/40x40" src="/images/icon.jpg" class="img-circle"></center>
+                                <label class="sr-only" for="form-username">{{sLabel}}</label>
+                                <input type="{{sInputType}}" placeholder="{{sLabel}}..." class="form-username form-control" ng-model="sInput">
+                            </div>
+                            <button type="submit" class="btn" name="Submit">{{sBtnPrompt}}</button>
+
+                        </form>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 social-login">
+                    <h3>...or login with:</h3>
+                    <div class="social-login-buttons">
+                        <a class="btn btn-link-1 btn-link-1-facebook" href="http://m.facebook.com/Kitchener-Master-Gardeners-10424583522480005">
+                            <i class="fa fa-facebook"></i> Facebook
+                        </a>
+                        <a class="btn btn-link-1 btn-link-1-twitter" href="#">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
 
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
 
+</div>
 
-
-    </body>

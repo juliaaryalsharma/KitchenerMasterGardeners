@@ -19,7 +19,25 @@ $oApp->get("/salt/:uname", function($sUname)use($oApp, $oDb){
     $oStmt->bindParam("uname", $sUname);
     $oStmt->execute();
     $aUser = $oStmt->fetchAll(PDO::FETCH_OBJ);
-    echo json_encode($aUser[0]);
+    if(count($aUser) > 0){
+        echo json_encode($aUser[0]);    
+    }else{
+        $oApp->halt(403, "no such user");
+    }
+    
 });
 
+$oApp->get("/checklogin/:uname/:sha1", function($sUname, $sSha1)use($oApp, $oDb){
+    $oStmt = $oDb->prepare("SELECT name FROM users WHERE uname = :uname and sha1 = :sha1");
+    $oStmt->bindParam("uname", $sUname);
+    $oStmt->bindParam("sha1", $sSha1);
+    $oStmt->execute();
+    $aUser = $oStmt->fetchAll(PDO::FETCH_OBJ);
+    if(count($aUser) > 0){
+        echo json_encode($aUser[0]);    
+    }else{
+        $oApp->halt(403, "no such user");
+    }
+    
+});
 $oApp->run();
