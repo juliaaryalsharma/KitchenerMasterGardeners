@@ -5,10 +5,11 @@ body{
 }
 
 .form_container{
-	width: 50%;
+	width: 70%;
 	position: relative;
 	margin: 0 auto;
 	overflow: hidden;
+    padding-top: 40px;
 }
 .left, .right{
 	position: absolute;
@@ -162,7 +163,10 @@ h3 {
 img { max-width: 100%; }
 
 ::-moz-selection { background: #4aaf51; color: #fff; text-shadow: none; }
-::selection { background: #4aaf51; color: #fff; text-shadow: none; }
+::selection {
+    background: #4aaf51;
+    color: #fff;
+    text-shadow: none; }
 
 
 .btn-link-1 {
@@ -311,8 +315,10 @@ img { max-width: 100%; }
 
 }
 .calendar{
-width: 50%;
-    border: solid black 4px;
+    width: 60%;
+    border: solid #4aaf51 2px;
+
+
 
 }
 

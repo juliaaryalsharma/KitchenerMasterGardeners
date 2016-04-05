@@ -1,4 +1,9 @@
-
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
 body{
 	margin:0;
 	font-family: 'Roboto-Regular';
@@ -86,51 +91,6 @@ nav.navbar.navbar-default {
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #377952;
 }
-.form_container{
-	width: 50%;
-	position: relative;
-	margin: 0 auto;
-	padding-top:40px;
-	overflow: hidden;
-}
-.left, .right{
-	position: absolute;
-	cursor: pointer;
-	top: 45%;
-	transform: translateY(-45%);
-	width: 0px;
-	height: 0px;
-	margin: 5px;
-	opacity: 0.4;
-	transition: all .5s ease-in;
-	-webkit-transition: all .5s ease-in;
-}
-.left{
-	left: 0px;
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	border-right: 27px solid #ccc;
-}
-.right{
-	right: 0px;
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	border-left: 27px solid #ccc;
-}
-.left:hover, .right:hover{
-	opacity: 1;
-}
-.form_container .slideContainer{
-	white-space: nowrap;
-}
-.form_container .slideContainer .slide{
-	display: inline-block;
-	margin-right: -4px;
-	vertical-align: top;
-	background-size: 100%;
-	background-repeat: no-repeat;
-	background-position: 20%;
-}
 /* Effect 11: text fill based on Lea Verou's animation http://dabblet.com/gist/6046779 */
 /* Bounce To Bottom */
 .hvr-bounce-to-bottom {
@@ -161,7 +121,7 @@ nav.navbar.navbar-default {
   right: 0;
   bottom: 0;
   color:#fff;
-  background: #84904b;
+  background: #84904b ;
   -webkit-transform: scaleY(0);
   -o-transform: scaleY(0);
   -moz-transform: scaleY(0);
@@ -679,7 +639,7 @@ h3.title {
     padding-left: 15px;
 }
 .about-slid {
-    background: url(../images/d.jpg)no-repeat 0px 0px fixed;
+    background: url(../images/slid.jpg)no-repeat 0px 0px fixed;
     background-size: cover;
     text-align: center;
     padding: 6em 0;
@@ -1096,8 +1056,8 @@ h2.typoh2{
 }
 .map iframe {
   height: 400px;
-  width: 50%;
-  border: 4px solid black;
+  width: 100%;
+  border: 0;
 }
 /*--//contact-page--*/
 /*--slider-up-arrow--*/

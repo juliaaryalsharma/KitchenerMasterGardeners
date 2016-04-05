@@ -5,11 +5,9 @@
         <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
         <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
         <link href="css/main.css" type="text/css" rel="stylesheet" media="all">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
-
+        <!--link rel="stylesheet" href="assets/css/style.css"-->
 
         <!-- Custom Theme files -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,13 +49,9 @@
         <div class="top-nav">
             <nav class="navbar navbar-default">
                 <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu
+				    </button>
+                </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -65,19 +59,13 @@
                             <li </li>
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "index.phtml") echo "active" ?>"><a href="index">Home</a></li>
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "about.phtml") echo "active" ?>"><a href="about">About</a></li>
-                            <li class="dropdown-toggle hvr-bounce-to-bottom <?php if($this->sPage == "calendar.phtml") echo "active" ?>" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><a href="calendar">Calendar<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="hvr-bounce-to-bottom" href="gallery.html">Calender</a></li>
-                                    <li><a class="hvr-bounce-to-bottom" href="gallery.html">Members List</a></li>
-                                    <li><a class="hvr-bounce-to-bottom" href="gallery.html">Members Address</a></li>
-                                </ul>
-                            </li>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "contact.phtml") echo "active" ?>"><a href="contact">Contact</a></li>
+                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "calendar.phtml") echo "active" ?>"><a href="calendar">Activities</a></li>
+                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "contact.phtml") echo "active" ?>"><a href="contact">Contact Us</a></li>
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "login.phtml") echo "active" ?>"><a href="login">Login</a></li>
                         </ul>
                         <div class="clearfix"> </div>
                     </div>
-              </div>
+
             </nav>
         </div>
         <!--=============================================================navigation =======================================-->
@@ -114,6 +102,12 @@
                     <p>Kitchener Master Gardeners © 2016. All rights reserved</p>
                 </div>
                 <div class="social-icons">
+                    <ul>
+					<li><a href="https://m.facebook.com/Kitchener-Master-Gardeners-1042458352480005/?ref=m_notif&notif_t=page_fan&actorid=100003644493969&notif_id=1458305449180731" class="fb"></a></li>
+					<li><a href="#"></a></li>
+					<li><a href="https://www.google.ca/?gfe_rd=cr&ei=0y0DV8fcIqaC8QefjZPICw#q=master%20gardeners%20of%20ontario" class="gg"></a></li>
+					<li><a href="#" class="pn"></a></li>
+				</ul>
 
                 </div>
                 <div class="clearfix"> </div>
