@@ -5,44 +5,46 @@ $this->layout("_layout.phtml");
 
 <!--============================================== Top content =======================================================-->
 <div ng-app="myApp" ng-controller="myController" class="top-content">
-
-
-        <div class="container">
+     <div class="container">
+         <div class="news">
             <div class="row">
                 <form role="form">
                     <div class="col-lg-6">
-                        <div class="well well-sm"><strong><span class="glyphicon glyphicon-star"></span>Required Field</strong></div>
+                        <div class="well well-sm"><strong><span class="glyphicon glyphicon-star"></span> Required Field</strong></div>
                         <div class="form-group">
                             <label for="InputName">Enter Name</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Enter Email</label>
                             <div class="input-group">
                                 <input type="email" class="form-control" id="InputEmailFirst" name="InputEmail" placeholder="Enter Email" required>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Confirm Email</label>
                             <div class="input-group">
                                 <input type="email" class="form-control" id="InputEmailSecond" name="InputEmail" placeholder="Confirm Email" required>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputMessage">Enter Message</label>
                             <div class="input-group">
                                 <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-start"></span></span>
                             </div>
                         </div>
-                        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+                        <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info">
                     </div>
                 </form>
+            </div>
+             </div>
+            <div>
                 <div class="col-lg-5 col-md-push-1">
                     <div class="col-md-12">
                         <div class="alert alert-success">
@@ -54,8 +56,6 @@ $this->layout("_layout.phtml");
                     </div>
                 </div>
             </div>
-        </div>
-
-
+    </div>
 </div>
 
