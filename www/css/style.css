@@ -30,6 +30,15 @@ h1,h2,h3,h4,h5,h6{
 p{
 	margin:0;
 }
+.text{
+margin:3em;
+
+}
+.activitie{
+    margin:4px;
+    color:#84904B;
+    font-weight: bold;
+}
 ul,label{
 	margin:0;
 	padding:0;
@@ -988,7 +997,7 @@ h2.typoh2{
 /*--//Typography --*/
 /*--contact-page--*/
 .contact-form {
-    padding: 5em 0 0;
+    padding: 5px 0 0;
 }
 .contact-form input[type="text"] {
   display: block;

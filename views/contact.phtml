@@ -20,58 +20,38 @@ $this->layout("_layout.phtml");
             </div>
         </div>
         <!--//baner-->
-        <!-==========================-map--===============================================>
-        <!---<div class="map">
-            <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
-                <tr>
-                    <form name="form1" method="post" action="checklogin.php">
-                        <td>
-                            <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-                                <tr>
-                                    <td colspan="3"><strong>Member Login </strong></td>
-                                </tr>
-                                <tr>
-                                    <td width="78">Username</td>
-                                    <td width="6">:</td>
-                                    <td width="294"><input name="myusername" type="text" id="myusername"></td>
-                                </tr>
-                                <tr>
-                                    <td>Password</td>
-                                    <td>:</td>
-                                    <td><input name="mypassword" type="text" id="mypassword"></td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td>&nbsp;</td>
-                                    <td><input type="submit" name="Submit" value="Login"></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </form>
-                </tr>
-            </table>
-        </div> --->
+
+
         <!--//map-->
         <!--contact-->
-        <div class="contact">
-            <div class="container">
-                <h3 class="title">Contact us</h3>
-                <div class="contact-form">
-                    <form>
-                        <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                        <div class="col-md-6 cnt-inpt">
-                            <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+    <div class="contact">
+        <div class="container">
+            <h3 class="title">Contact us</h3>
+
+                <div class="baner-grids">
+                    <div class="contact-form">
+                        <div class="news">
+                            <div class="text">
+                            <h3>If you have any gardening question, please fill in the form below and we’ll reply as soon as posible.</h3>
+                            </div>
+                            <form>
+                                <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                <div class="col-md-6 cnt-inpt">
+                                    <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                                </div>
+                                <div class="col-md-6 cnt-inpt">
+                                    <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
+                                </div>
+                                <div class="clearfix"> </div>
+                                <textarea onfocus="this.value = '' ;" onblur="if (this.value == '') {this.value = 'Message...';}" required=""> Message... </textarea>
+                                <input type="submit" value="Submit">
+                            </form>
+
                         </div>
-                        <div class="col-md-6 cnt-inpt">
-                            <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-                        </div>
-                        <div class="clearfix"> </div>
-                        <textarea onfocus="this.value = '' ;" onblur="if (this.value == '') {this.value = 'Message...';}" required=""> Message... </textarea>
-                        <input type="submit" value="Submit">
-                    </form>
+                    </div>
                 </div>
-            </div>
         </div>
+    </div>
      <!--//contact-->
         <div class="row">
                         <div class="col-sm-6 col-sm-offset-3 social-login">
@@ -86,7 +66,7 @@ $this->layout("_layout.phtml");
 
                         	</div>
                         </div>
-                    </div>
+        </div>
         <!--//contact-->
 
         <!--smooth-scrolling-of-move-up-->
@@ -109,7 +89,6 @@ $this->layout("_layout.phtml");
         <!--//smooth-scrolling-of-move-up-->
         <!-- Bootstrap core JavaScript
 ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="js/bootstrap.js"></script>
+
 </body>
 

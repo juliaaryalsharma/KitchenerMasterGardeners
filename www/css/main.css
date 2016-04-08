@@ -241,10 +241,10 @@ img { max-width: 100%; }
 
 .form-top {
 	overflow: hidden;
-	padding: 0 25px 15px 25px;
+	padding: 0 25px 10px 25px;
 	background: #fff;
 	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
-	text-align: left;
+	text-align: center;
 }
 
 .form-top-left {
@@ -295,6 +295,11 @@ img { max-width: 100%; }
 .social-login-buttons {
 	margin-top: 25px;
 }
+.signup{
+text-align: center;
+color:blue;
+
+}
 
 
 /***** Media queries *****/
@@ -315,7 +320,7 @@ img { max-width: 100%; }
 
 }
 .calendar{
-    width: 60%;
+    width: 100%;
     border: solid #4aaf51 2px;
 
 

@@ -62,7 +62,7 @@ $this->layout("_layout.phtml");
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
-                        <div class="form-top-left">
+                        <div class="form-top">
                             <h3 class="header">Members Login</h3>
                         </div>
                         <div class="form-top-right">
@@ -79,6 +79,7 @@ $this->layout("_layout.phtml");
                                     <input type="text" placeholder="Username ..." class="form-username form-control" ng-model="$parent.sUname">
                                 </div>
                                 <button type="submit" class="btn" name="Submit">Next</button>
+                                <a href="contact" class="pull-right need-help"><u>Need Help</u>?</a><span class="clearfix"></span>
                             </form>
                         </script>
                         <script type="text/ng-template" id="pwd.html">
@@ -89,16 +90,15 @@ $this->layout("_layout.phtml");
                                 <button type="submit" class="btn" name="Submit">Login</button>
                             </form>
                         </script>
-                        <script type="text/ng-template" id="welcome.html">
+                        <script type="text/ng-template" id="signup.phtml">
                                 Welcome {{sName}}!
                         </script>
-
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 social-login">
-                    <h3>...or login with:</h3>
+                    <h4 class="signup"><a href="signup" ><u>Sign up</u></a><span class="clearfix"></span></h4>
                     <div class="social-login-buttons">
                         <a class="btn btn-link-1 btn-link-1-facebook" href="http://m.facebook.com/Kitchener-Master-Gardeners-10424583522480005">
                             <i class="fa fa-facebook"></i> Facebook
