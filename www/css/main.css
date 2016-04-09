@@ -323,12 +323,23 @@ color:blue;
     width: 100%;
     border: solid #4aaf51 2px;
 
+}
+
+.widge{
+text-align: center;
+    color: #84904B;
+    mergin:6px;
+    font-weight: bold;
+    font-family: 'Roboto-Regular';
 
 
 }
 
-center img{
+#widgetmain{
+    float:right;
+}
+/*center img{
     margin-bottom:1em;
-}
+}*/
 
 
