@@ -65,7 +65,19 @@
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "about.phtml") echo "active" ?>"><a href="about">About</a></li>
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "calendar.phtml") echo "active" ?>"><a href="calendar">Activities</a></li>
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "contact.phtml") echo "active" ?>"><a href="contact">Contact Us</a></li>
+                            <?php if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bVolunteer){
+                                    ?>
+                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "volunteer.phtml") echo "active" ?>"><a href="volunteer">Volunteer</a></li>
+                            <?php }
+                                if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bAdmin){
+                                    ?>
+                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "admin.phtml") echo "active" ?>"><a href="admin">Admin</a></li>
+                            <?php }
+                                if(!isset($_SESSION["currentUser"])){ ?>
                             <li class="hvr-bounce-to-bottom <?php if($this->sPage == "login.phtml") echo "active" ?>"><a href="login">Login</a></li>
+                            <?php } else {?>
+                            <li class="hvr-bounce-to-bottom"><a href="logout">Logout</a></li>
+                            <?php } ?>
                         </ul>
                         <div class="clearfix"> </div>
                     </div>
