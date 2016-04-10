@@ -19,7 +19,7 @@ $this->layout("_layout.phtml");
                         pageScope.sSalt = sData.salt;
                         angular.element('#focusme').focus()
                     }).error(function(){
-                        $scope.$parent.message = "incorrect username";
+                        $scope.$parent.message = "incorrect or pending username";
                     });
                 }]
             })

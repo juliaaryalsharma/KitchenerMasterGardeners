@@ -2,40 +2,90 @@
 $this->data["title"] = "Kitchener Master Gardeners";
 $this->layout("_layout.phtml");
 ?>
+<script>
 
+    angular.module('myApp', []).controller("myController", function ($scope, $http) {
+        $scope.erroMessage = null;
+        $scope.successMessage = null;
+        $scope.submitSignup = function(){
+            if($scope.model.email1 != $scope.model.email2){
+                $scope.errorMessage = "emails must match";
+                return;
+            }
+            if($scope.model.password1 != $scope.model.password2){
+                $scope.errorMessage = "passwords must match";
+                return;
+            }
+            $scope.erroMessage = null;
+            $scope.httpModel = {};
+            var shaObj = new jsSHA("SHA-512", "TEXT");
+            shaObj.update($scope.model.userName);
+            $scope.httpModel.sUname = shaObj.getHash("HEX");
+            $scope.httpModel.sSalt = Math.random();
+            shaObj = new jsSHA("SHA-512", "TEXT");
+            shaObj.update($scope.httpModel.sUname + $scope.httpModel.sSalt + $scope.model.password1);
+            $scope.httpModel.sSha1 = shaObj.getHash("HEX");
+            alert(JSON.stringify($scope.httpModel));
+        }
+
+
+    });
+
+</script>
 <!--============================================== Top content =======================================================-->
 <div ng-app="myApp" ng-controller="myController" class="top-content">
-     <div class="container">
-         <div class="news">
+    <div class="container">
+        <div class="news">
             <div class="row">
-                <form role="form">
+                <form role="form" ng-submit="submitSignup()">
                     <div class="col-lg-6">
                         <div class="well well-sm"><strong><span class="glyphicon glyphicon-star"></span> Required Field</strong></div>
                         <div class="form-group">
                             <label for="InputName">Enter Name</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+                                <input type="text" class="form-control" ng-model="model.name" id="InputName" placeholder="Enter Name" required>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputEmail">Enter Email</label>
                             <div class="input-group">
-                                <input type="email" class="form-control" id="InputEmailFirst" name="InputEmail" placeholder="Enter Email" required>
+                                <input type="email" class="form-control" id="InputEmail" ng-model="model.email1" placeholder="Enter Email" required>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="InputEmail">Confirm Email</label>
+                            <label for="InputEmailSecond">Confirm Email</label>
                             <div class="input-group">
-                                <input type="email" class="form-control" id="InputEmailSecond" name="InputEmail" placeholder="Confirm Email" required>
+                                <input type="email" class="form-control" id="InputEmailSecond" ng-model="model.email2" placeholder="Confirm Email" required>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="UserName">Enter User Name</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" ng-model="model.userName" id="UserName" placeholder="Enter User Name" required>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPassword">Enter Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="InputPassword" ng-model="model.password1" placeholder="Enter Password" required>
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="InputPasswordSecond">Confirm Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control" id="InputPasswordSecond" ng-model="model.password2" placeholder="Confirm Password" required>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="InputMessage">Enter Message</label>
                             <div class="input-group">
-                                <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" required></textarea>
+                                <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" ng-model="httpModel.message" required></textarea>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-start"></span></span>
                             </div>
                         </div>
@@ -43,19 +93,19 @@ $this->layout("_layout.phtml");
                     </div>
                 </form>
             </div>
-             </div>
-            <div>
-                <div class="col-lg-5 col-md-push-1">
-                    <div class="col-md-12">
-                        <div class="alert alert-success">
-                            <strong><span class="glyphicon glyphicon-ok"></span> Success! Message sent.</strong>
-                        </div>
-                        <div class="alert alert-danger">
-                            <span class="glyphicon glyphicon-remove"></span><strong> Error! Please check all page inputs.</strong>
-                        </div>
+        </div>
+        <div>
+            <div class="col-lg-5 col-md-push-1">
+                <div class="col-md-12">
+                    <div class="alert alert-success" ng-hide="successMessage==null">
+                        <strong><span class="glyphicon glyphicon-ok"></span> Success! {{successMessage}}.</strong>
+                    </div>
+                    <div class="alert alert-danger" ng-hide="errorMessage==null">
+                        <span class="glyphicon glyphicon-remove"></span><strong> Error! {{errorMessage}}.</strong>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 </div>
 
