@@ -21,7 +21,7 @@ $oApp->get("/:page", function($sPage)use($oApp){
 });
 
 $oApp->get("/salt/:uname", function($sUname)use($oApp, $oDb){
-    $oStmt = $oDb->prepare("SELECT salt FROM users WHERE uname = :uname");
+    $oStmt = $oDb->prepare('SELECT salt FROM users WHERE uname = :uname AND bPending = "false"');
     $oStmt->bindParam("uname", $sUname);
     $oStmt->execute();
     $aUser = $oStmt->fetchAll(PDO::FETCH_OBJ);
@@ -34,7 +34,7 @@ $oApp->get("/salt/:uname", function($sUname)use($oApp, $oDb){
 });
 
 $oApp->get("/checklogin/:uname/:sha1", function($sUname, $sSha1)use($oApp, $oDb){
-    $oStmt = $oDb->prepare("SELECT * FROM users WHERE uname = :uname and sha1 = :sha1");
+    $oStmt = $oDb->prepare('SELECT * FROM users WHERE uname = :uname and sha1 = :sha1 AND bPending = "false"');
     $oStmt->bindParam("uname", $sUname);
     $oStmt->bindParam("sha1", $sSha1);
     $oStmt->execute();
