@@ -2,3 +2,43 @@
 $this->data["title"] = "Kitchener Master Gardeners";
 $this->layout("_layout.phtml");
 ?>
+
+
+ <div class="contact">
+        <div class="container">
+            <h3 class="title">Admin Page</h3>
+
+                <div class="baner-grids">
+                    <div class="contact-form">
+                        <div class="news">
+                            <div class="text">
+                            <h3>Members Information</h3>
+                            </div>
+                            <form>
+                                <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                <input type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}" required="">
+                                <div class="col-md-6 cnt-inpt">
+                                <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+                                </div>
+                                <div class="col-md-6 cnt-inpt">
+                                <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
+                                </div>
+                                <div class="col-md-6 cnt-inpt">
+                                <h6>Date Of Birth : <span class="label label-default"></span></h6><input type="Date" value="Date Of Birth" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DateOfBirth';}" required="">
+                                </div>
+                                <div class="col-md-6 cnt-inpt">
+                                <input type="text" value="Gender" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Gender';}" required="">
+                                </div>
+                                <div class="clearfix"> </div>
+                                <textarea onfocus="this.value = '' ;" onblur="if (this.value == '') {this.value = 'Description...';}" required=""> Description... </textarea>
+                                <input type="submit" value="Edit">
+                                 <input type="submit" value="Add">
+                                <input type="submit" value="Delete">
+                                <input type="submit" value="Members List">
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
