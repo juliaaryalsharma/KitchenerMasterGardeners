@@ -11,7 +11,7 @@
         <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
         <link href="css/main.css" type="text/css" rel="stylesheet" media="all">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/form-elements.css">
 
 
         <!-- Custom Theme files -->
@@ -53,39 +53,44 @@
         <div class="top-nav">
             <nav class="navbar navbar-default">
                 <div class="container">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu
-				</button>
-			     </div>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">Menu
+                    </button>
+                </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li </li>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "index.phtml") echo "active" ?>"><a href="index">Home</a></li>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "about.phtml") echo "active" ?>"><a href="about">About</a></li>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "calendar.phtml") echo "active" ?>"><a href="calendar">Activities</a></li>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "contact.phtml") echo "active" ?>"><a href="contact">Contact Us</a></li>
-                            <?php if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bVolunteer){
-                                    ?>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "volunteer.phtml") echo "active" ?>"><a href="volunteer">Volunteer</a></li>
-                            <?php }
-                                if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bAdmin){
-                                    ?>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "admin.phtml") echo "active" ?>"><a href="admin">Admin</a></li>
-                            <?php }
-                                if(!isset($_SESSION["currentUser"])){ ?>
-                            <li class="hvr-bounce-to-bottom <?php if($this->sPage == "login.phtml") echo "active" ?>"><a href="login">Login</a></li>
-                            <?php } else {?>
-                            <li class="hvr-bounce-to-bottom"><a href="logout">Logout</a></li>
-                            <?php } ?>
-                        </ul>
-                        <div class="clearfix"> </div>
-                    </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li </li>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "index.phtml") echo "active" ?>"><a href="index">Home</a></li>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "about.phtml") echo "active" ?>"><a href="about">About</a></li>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "calendar.phtml") echo "active" ?>"><a href="calendar">Activities</a></li>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "contact.phtml") echo "active" ?>"><a href="contact">Contact Us</a></li>
+                        <?php if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bVolunteer){
+                        ?>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "volunteer.phtml") echo "active" ?>"><a href="volunteer">Volunteer</a></li>
+                        <?php }
+if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bAdmin){
+                        ?>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "admin.phtml") echo "active" ?>"><a href="admin">Admin</a></li>
+                        <?php }
+if(!isset($_SESSION["currentUser"])){ ?>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "login.phtml") echo "active" ?>"><a href="login">Login</a></li>
+                        <?php } else {?>
+                        <li class="hvr-bounce-to-bottom"><a href="logout">Logout</a></li>
+                        <?php } ?>
+                    </ul>
+                    <div class="clearfix"> </div>
+                </div>
 
             </nav>
         </div>
         <!--=============================================================navigation =======================================-->
 
+
+
+
+
+        <!---============================================================== contact ===================--->
         <?php $this->renderBody(); ?>
 
         <!-- footer -->
@@ -105,7 +110,7 @@
                     <div class="col-md-6 footer-grid">
                         <h3 class="title">Send Us An Email</h3>
                         <ul>
-                                 <li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  <a href="mailto:kgardener2002@gmail.com">kgardener2002@gmail.com</a></li>
+                            <li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>  <a href="mailto:kgardener2002@gmail.com">kgardener2002@gmail.com</a></li>
                         </ul>
                     </div>
                     <div class="clearfix"> </div>
@@ -113,7 +118,7 @@
             </div>
         </div>
 
-<!---============================== contact ===================--->
+
         <div class="copy">
             <div class="container">
                 <div class="copy-left">
@@ -121,26 +126,26 @@
                 </div>
                 <div class="social-icons">
                     <ul>
-					<li><a href="https://m.facebook.com/Kitchener-Master-Gardeners-1042458352480005/?ref=m_notif&notif_t=page_fan&actorid=100003644493969&notif_id=1458305449180731" class="fb"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="https://www.google.ca/?gfe_rd=cr&ei=0y0DV8fcIqaC8QefjZPICw#q=master%20gardeners%20of%20ontario" class="gg"></a></li>
-					</ul>
+                        <li><a href="https://m.facebook.com/Kitchener-Master-Gardeners-1042458352480005/?ref=m_notif&notif_t=page_fan&actorid=100003644493969&notif_id=1458305449180731" class="fb"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="https://www.google.ca/?gfe_rd=cr&ei=0y0DV8fcIqaC8QefjZPICw#q=master%20gardeners%20of%20ontario" class="gg"></a></li>
+                    </ul>
 
                 </div>
                 <div class="clearfix"> </div>
             </div>
         </div>
-        <!--//footer-->
+        <!--//============================================footer ==================================================-->
         <!--smooth-scrolling-of-move-up-->
         <script type="text/javascript">
             $(document).ready(function() {
 
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear'
-			};
+                var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear'
+                };
 
 
                 $().UItoTop({ easingType: 'easeOutQuart' });
@@ -154,58 +159,58 @@
         <!-- Placed at the end of the document so the pages load faster -->
 
         <!--//Oscar start  navigation slider javaScript This part must to be here-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script type="text/javascript">
-			var indicador = 0;
-			$(document).on('ready', function(){
-				$('.left').on('click', function(e){
-					e.preventDefault();
-					moveSlider('left');
-				});
-				$('.right').on('click', function(e){
-					e.preventDefault();
-					moveSlider('right');
-				});
-				function auto(){
-					intv = setInterval(function(){
-					$('.right').click();
-					}, 4000);
-				}
-				auto(); // start
-				$('.form_container').hover(function( e ){
-					return e.type=='mouseenter'?clearInterval(intv):auto();
-				});
-				defineSizes();
-			});
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            var indicador = 0;
+            $(document).on('ready', function(){
+                $('.left').on('click', function(e){
+                    e.preventDefault();
+                    moveSlider('left');
+                });
+                $('.right').on('click', function(e){
+                    e.preventDefault();
+                    moveSlider('right');
+                });
+                function auto(){
+                    intv = setInterval(function(){
+                        $('.right').click();
+                    }, 4000);
+                }
+                auto(); // start
+                $('.form_container').hover(function( e ){
+                    return e.type=='mouseenter'?clearInterval(intv):auto();
+                });
+                defineSizes();
+            });
 
-			$(window).on('resize', defineSizes);
-				function defineSizes(){
-					$('.form_container .slide').each(function(i, el) {
-						$(el).css({
-							'background-image': 'url('+$(el).data('background')+')',
-							'height': ($('.form_container').width() * 0.42)+'px',
-							'width' : ($('.form_container').width())+'px'
-						});
-					});
-				$('.form_container .slideContainer').css({
-					'margin-left': -(indicador * $('.form_container').width())+'px'
-				})
-				}
-			function moveSlider(direccion){
-				var limite = $('.form_container .slide').length;
-				indicador = (direccion == 'right') ? indicador + 1 : indicador - 1;
-				indicador = (indicador >= limite) ? 0 : indicador;
-				indicador = (indicador < 0) ? limite - 1 : indicador;
-				$('.form_container .slideContainer').animate({
-					'margin-left': -(indicador * $('.form_container').width())+'px'
-				})
-			}
-		</script>
+            $(window).on('resize', defineSizes);
+            function defineSizes(){
+                $('.form_container .slide').each(function(i, el) {
+                    $(el).css({
+                        'background-image': 'url('+$(el).data('background')+')',
+                        'height': ($('.form_container').width() * 0.42)+'px',
+                        'width' : ($('.form_container').width())+'px'
+                    });
+                });
+                $('.form_container .slideContainer').css({
+                    'margin-left': -(indicador * $('.form_container').width())+'px'
+                })
+            }
+            function moveSlider(direccion){
+                var limite = $('.form_container .slide').length;
+                indicador = (direccion == 'right') ? indicador + 1 : indicador - 1;
+                indicador = (indicador >= limite) ? 0 : indicador;
+                indicador = (indicador < 0) ? limite - 1 : indicador;
+                $('.form_container .slideContainer').animate({
+                    'margin-left': -(indicador * $('.form_container').width())+'px'
+                })
+            }
+        </script>
 
-<!--//Oscar end  navigation slider javaScript This part must to be here-->
+        <!--//Oscar end  navigation slider javaScript This part must to be here-->
 
-<!--===================================================================== -->
-            <script src="js/bootstrap.js"></script>
+        <!--===================================================================== -->
+        <script src="js/bootstrap.js"></script>
 
 
     </body>

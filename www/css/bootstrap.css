@@ -8,7 +8,8 @@
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
 }
 body {
   margin: 0;
@@ -1147,6 +1148,8 @@ img {
 }
 .img-circle {
   border-radius: 50%;
+    border: solid black 0.2px;
+    margin:2%;
 }
 hr {
   margin-top: 20px;

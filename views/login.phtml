@@ -62,10 +62,8 @@ $this->layout("_layout.phtml");
 
 <!-- Top content -->
 <div ng-app="myApp" ng-controller="myController" class="top-content">
-
     <div class="inner-bg">
         <div class="container">
-
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
@@ -77,6 +75,7 @@ $this->layout("_layout.phtml");
                         </div>
                     </div>
                     <div class="form-bottom">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
                         <center><img data-src="holder.js/40x40" src="/images/icon.jpg" class="img-circle"></center>
                         <div ng-view class="view-animate">
                         </div>
@@ -117,6 +116,7 @@ $this->layout("_layout.phtml");
             </div>
         </div>
     </div>
-
 </div>
+
+
 
