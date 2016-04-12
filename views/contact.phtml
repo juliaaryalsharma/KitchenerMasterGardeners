@@ -32,17 +32,17 @@ $this->layout("_layout.phtml");
                            <h3>If you have any gardening question, please fill in the form below and we’ll reply as soon as possible.</h3>
                         </div>
                          <form action="mailform" method="POST">
-                            <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                            <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="" name="Name">
                             <input type="text" value="Last name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Lastname';}" required="">
                             <div class="col-md-6 cnt-inpt">
                             <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
                             </div>
                             <div class="col-md-6 cnt-inpt">
-                            <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
+                            <input type="text"  name="phone">
                             </div>
                             <div class="clearfix"> </div>
                             <textarea onfocus="this.value = '' ;" onblur="if (this.value == '') {this.value = 'Message...';}" required=""> Message...</textarea>
-                            <input type="submit" value="Submit" name="btn1">
+                            <input type="submit" value="Submit" >
                         </form>
                     </div>
                 </div>

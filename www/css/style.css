@@ -648,7 +648,7 @@ h3.title {
     padding-left: 15px;
 }
 .about-slid {
-    background: url(../images/d.jpg)no-repeat 0px 0px fixed;
+    background: url(../images/chinese.jpg)no-repeat 0px 0px fixed;
     background-size: cover;
     text-align: center;
     padding: 6em 0;
@@ -660,7 +660,7 @@ h3.title {
     padding: 6em 0;
 }
 .about-slid h2 {
-  color: #fff;
+  color: #008000;
   font-size: 4em;
   font-family: 'Iceland-Regular';
 }
