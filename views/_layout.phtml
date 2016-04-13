@@ -65,9 +65,9 @@
                         <li class="hvr-bounce-to-bottom <?php if($this->sPage == "about.phtml") echo "active" ?>"><a href="about">About</a></li>
                         <li class="hvr-bounce-to-bottom <?php if($this->sPage == "calendar.phtml") echo "active" ?>"><a href="calendar">Activities</a></li>
                         <li class="hvr-bounce-to-bottom <?php if($this->sPage == "contact.phtml") echo "active" ?>"><a href="contact">Contact Us</a></li>
-                        <?php if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bVolunteer){
+                        <?php if(isset($_SESSION["currentUser"]) && ($_SESSION["currentUser"]->bVolunteer || $_SESSION["currentUser"]->bAdmin)){
                         ?>
-                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "volunteer.phtml") echo "active" ?>"><a href="volunteer">Volunteer</a></li>
+                        <li class="hvr-bounce-to-bottom <?php if($this->sPage == "profile.phtml") echo "active" ?>"><a href="profile">Profile</a></li>
                         <?php }
 if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bAdmin){
                         ?>
