@@ -16,6 +16,10 @@ $oApp->get("/logout", function()use($oApp){
     $oApp->redirect("/index");
 });
 
+$oApp->post("/login", function()use($oApp){
+    echo $oApp->request->getBody();
+});
+
 $oApp->get("/:page", function($sPage)use($oApp){
     $oApp->render($sPage . ".phtml");
 });
@@ -46,5 +50,9 @@ $oApp->get("/checklogin/:uname/:sha1", function($sUname, $sSha1)use($oApp, $oDb)
         $oApp->halt(403, "no such user");
     }
     
+});
+
+$oApp->post("/login", function()use($oApp){
+
 });
 $oApp->run();

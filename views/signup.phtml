@@ -7,6 +7,7 @@ $this->layout("_layout.phtml");
     angular.module('myApp', []).controller("myController", function ($scope, $http) {
         $scope.erroMessage = null;
         $scope.successMessage = null;
+        $scope.httpModel = {};
         $scope.submitSignup = function(){
             if($scope.model.email1 != $scope.model.email2){
                 $scope.errorMessage = "emails must match";
@@ -17,7 +18,6 @@ $this->layout("_layout.phtml");
                 return;
             }
             $scope.erroMessage = null;
-            $scope.httpModel = {};
             var shaObj = new jsSHA("SHA-512", "TEXT");
             shaObj.update($scope.model.userName);
             $scope.httpModel.sUname = shaObj.getHash("HEX");
@@ -25,6 +25,12 @@ $this->layout("_layout.phtml");
             shaObj = new jsSHA("SHA-512", "TEXT");
             shaObj.update($scope.httpModel.sUname + $scope.httpModel.sSalt + $scope.model.password1);
             $scope.httpModel.sSha1 = shaObj.getHash("HEX");
+            $http.post("/login", $scope.httpModel).success(function(oData){
+                $scope.successMessage = "thanks for your interest, we will review your application.";
+            }).error(function(oErr){
+                console.log(oErr);
+                $scope.errorMessage = "error: " + JSON.stringify(oErr);
+            })
             alert(JSON.stringify($scope.httpModel));
         }
 
