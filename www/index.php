@@ -16,8 +16,20 @@ $oApp->get("/logout", function()use($oApp){
     $oApp->redirect("/index");
 });
 
-$oApp->post("/login", function()use($oApp){
-    echo $oApp->request->getBody();
+$oApp->post("/login", function()use($oApp, $oDb){
+    $oUser = json_decode($oApp->request->getBody());
+    $oStmt = $oDb->prepare('INSERT into users(name, uname, salt, sha1, message) VALUES(:name, :uname, :salt, :pwd, :message)');
+    $oStmt->bindParam("name", $oUser->name);
+    $oStmt->bindParam("uname", $oUser->sUname);
+    $oStmt->bindParam("salt", $oUser->sSalt);
+    $oStmt->bindParam("pwd", $oUser->sSha1);
+    $oStmt->bindParam("message", $oUser->message);
+    $oStmt->execute();
+    if($oStmt->rowCount() == 1){
+        echo '{"result":"success", "name":"'. $oUser->name . '"}';
+    }else{
+        $oApp->halt(500, json_encode($oStmt->errorInfo()));
+     }
 });
 
 $oApp->get("/:page", function($sPage)use($oApp){

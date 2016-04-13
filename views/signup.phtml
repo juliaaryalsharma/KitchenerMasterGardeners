@@ -25,13 +25,13 @@ $this->layout("_layout.phtml");
             shaObj = new jsSHA("SHA-512", "TEXT");
             shaObj.update($scope.httpModel.sUname + $scope.httpModel.sSalt + $scope.model.password1);
             $scope.httpModel.sSha1 = shaObj.getHash("HEX");
+            $scope.successMessage = $scope.errorMessage = null;
             $http.post("/login", $scope.httpModel).success(function(oData){
                 $scope.successMessage = "thanks for your interest, we will review your application.";
             }).error(function(oErr){
                 console.log(oErr);
                 $scope.errorMessage = "error: " + JSON.stringify(oErr);
-            })
-            alert(JSON.stringify($scope.httpModel));
+            });
         }
 
 
@@ -49,7 +49,7 @@ $this->layout("_layout.phtml");
                         <div class="form-group">
                             <label for="InputName">Enter Name</label>
                             <div class="input-group">
-                                <input type="text" class="form-control" ng-model="model.name" id="InputName" placeholder="Enter Name" required>
+                                <input type="text" class="form-control" ng-model="httpModel.name" id="InputName" placeholder="Enter Name" required>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ $this->layout("_layout.phtml");
                         <strong><span class="glyphicon glyphicon-ok"></span> Success! {{successMessage}}.</strong>
                     </div>
                     <div class="alert alert-danger" ng-hide="errorMessage==null">
-                        <span class="glyphicon glyphicon-remove"></span><strong> Error! {{errorMessage}}.</strong>
+                        <span class="glyphicon glyphicon-remove"></span><strong> {{errorMessage}}</strong>
                     </div>
                 </div>
             </div>
