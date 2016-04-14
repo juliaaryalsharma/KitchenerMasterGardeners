@@ -32,6 +32,10 @@ $oApp->post("/login", function()use($oApp, $oDb){
      }
 });
 
+$oApp->get("/currentUser", function(){
+    echo json_encode($_SESSION["currentUser"]);
+});
+
 $oApp->get("/:page", function($sPage)use($oApp){
     $oApp->render($sPage . ".phtml");
 });
