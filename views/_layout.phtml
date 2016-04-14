@@ -78,7 +78,7 @@
                         ?>
                         <li class="hvr-bounce-to-bottom <?php if($this->sPage == "profile.phtml") echo "active" ?>"><a href="profile">Profile</a></li>
                         <?php }
-if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bAdmin == "true"){
+if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bAdmin == 1){
                         ?>
                         <li class="hvr-bounce-to-bottom <?php if($this->sPage == "admin.phtml") echo "active" ?>"><a href="admin">Admin</a></li>
                         <?php }

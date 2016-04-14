@@ -7,11 +7,11 @@ $this->layout("_layout.phtml");
     angular.module('myApp', []).controller("myController", function ($scope, $http) {
         $http.get("/users").success(function(oData){
             for(var i = 0; i < oData.length; i++){
-                if(oData[i].bPending == "true" || oData[i].bPending == 1)oData[i].bPending = true;
+                if(oData[i].bPending == 1)oData[i].bPending = true;
                 else oData[i].bPending = false;
-                if(oData[i].bAdmin == "true" || oData[i].bAdmin == 1)oData[i].bAdmin = true;
+                if(oData[i].bAdmin == 1)oData[i].bAdmin = true;
                 else oData[i].bAdmin = false;
-                if(oData[i].bVolunteer == "true"|| oData[i].bVolunteer == 1)oData[i].bVolunteer = true;
+                if(oData[i].bVolunteer == 1)oData[i].bVolunteer = true;
                 else oData[i].bVolunteer = false;
             }
             $scope.users = oData;
