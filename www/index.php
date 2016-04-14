@@ -33,10 +33,32 @@ $oApp->post("/login", function()use($oApp, $oDb){
 });
 
 $oApp->get("/users", function()use($oApp, $oDb){
-    $oStmt = $oDb->prepare("SELECT id, name, bPending, bAdmin, bVolunteer FROM users ORDER BY name");
+    if($_SESSION["currentUser"]->bAdmin != "true"){
+        $oApp->halt(403, "unauthorized");
+    }
+    $oStmt = $oDb->prepare("SELECT id, name, message, bPending, bAdmin, bVolunteer FROM users ORDER BY name");
     $oStmt->execute();
     echo json_encode($oStmt->fetchAll(PDO::FETCH_OBJ));
 });
+
+$oApp->post("/users", function()use($oApp, $oDb){
+    if($_SESSION["currentUser"]->bAdmin != "true"){
+        $oApp->halt(403, "unauthorized");
+    }
+    $oUser = json_decode($oApp->request->getBody());
+    $oStmt = $oDb->prepare('UPDATE users SET bPending = :bPending, bAdmin = :bAdmin, bVolunteer = :bVolunteer WHERE id = :id');
+    $oStmt->bindParam("bPending", $oUser->bPending);
+    $oStmt->bindParam("bAdmin", $oUser->bAdmin);
+    $oStmt->bindParam("bVolunteer", $oUser->bVolunteer);
+    $oStmt->bindParam("id", $oUser->id);
+    $oStmt->execute();
+    if($oStmt->rowCount() == 1){
+        echo '{"result":"success", "name":"'. $oUser->name . '"}';
+    }else{
+        $oApp->halt(500, json_encode($oStmt->errorInfo()));
+     }
+});
+
 $oApp->get("/currentUser", function(){
     echo json_encode($_SESSION["currentUser"]);
 });
@@ -73,7 +95,4 @@ $oApp->get("/checklogin/:uname/:sha1", function($sUname, $sSha1)use($oApp, $oDb)
     
 });
 
-$oApp->post("/login", function()use($oApp){
-
-});
 $oApp->run();

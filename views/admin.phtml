@@ -7,15 +7,26 @@ $this->layout("_layout.phtml");
     angular.module('myApp', []).controller("myController", function ($scope, $http) {
         $http.get("/users").success(function(oData){
             for(var i = 0; i < oData.length; i++){
-                if(oData[i].bPending == "true")oData[i].bPending = true;
+                if(oData[i].bPending == "true" || oData[i].bPending == 1)oData[i].bPending = true;
                 else oData[i].bPending = false;
-                if(oData[i].bAdmin == "true")oData[i].bAdmin = true;
+                if(oData[i].bAdmin == "true" || oData[i].bAdmin == 1)oData[i].bAdmin = true;
                 else oData[i].bAdmin = false;
-                if(oData[i].bVolunteer == "true")oData[i].bVolunteer = true;
+                if(oData[i].bVolunteer == "true"|| oData[i].bVolunteer == 1)oData[i].bVolunteer = true;
                 else oData[i].bVolunteer = false;
             }
             $scope.users = oData;
         });
+        $scope.onChange = function(user){
+            $http.post("/users", user).success(function(oData){
+                console.log(oData);
+                toastr.info('saved');
+            })
+            .error(function(oData){
+                console.log(oData);
+                toastr.error('not saved' + JSON.stringify(oData));
+
+            });
+        };
     });
 </script>
 <div ng-app="myApp" ng-controller="myController" class="contact">
@@ -32,19 +43,22 @@ $this->layout("_layout.phtml");
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Message</th>
                             <th>Pending</th>
                             <th>Admin</th>
                             <th>Volunteer</th>
 
                         </tr>
                     </thead>
-                    <tr ng-repeat="(n, user) in users track by n" ng-cloak>
-                        <td>{{user.name}}</td>
-                        <td><input type="checkbox" ng-model="user.bPending" /></td>
-                        <td><input type="checkbox" ng-model="user.bAdmin" /></td>
-                        <td><input type="checkbox" ng-model="user.bVolunteer" /></td>
-                    </tr>
-
+                    <tbody>
+                        <tr ng-repeat="(n, user) in users track by n" ng-cloak>
+                            <td>{{user.name}}</td>
+                            <td>{{user.message}}</td>
+                            <td><input type="checkbox" ng-model="user.bPending" ng-change="onChange(user)" /></td>
+                            <td><input type="checkbox" ng-model="user.bAdmin" ng-change="onChange(user)" /></td>
+                            <td><input type="checkbox" ng-model="user.bVolunteer" ng-change="onChange(user)" /></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
