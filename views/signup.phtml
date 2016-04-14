@@ -21,10 +21,8 @@ $this->layout("_layout.phtml");
             var shaObj = new jsSHA("SHA-512", "TEXT");
             shaObj.update($scope.model.userName);
             $scope.httpModel.sUname = shaObj.getHash("HEX");
-            $scope.httpModel.sSalt = Math.random();
-            shaObj = new jsSHA("SHA-512", "TEXT");
-            shaObj.update($scope.httpModel.sUname + $scope.httpModel.sSalt + $scope.model.password1);
-            $scope.httpModel.sSha1 = shaObj.getHash("HEX");
+            $scope.httpModel.sSalt = Math.random().toString();
+            $scope.httpModel.sSha1 = getSha1($scope.httpModel.sUname, $scope.httpModel.sSalt, $scope.model.password1)
             $scope.successMessage = $scope.errorMessage = null;
             $http.post("/login", $scope.httpModel).success(function(oData){
                 $scope.successMessage = "thanks for your interest, we will review your application.";

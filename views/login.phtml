@@ -28,9 +28,7 @@ $this->layout("_layout.phtml");
                 controller: ['$scope','$routeParams', '$http', function($scope, $routeParams, $http) {
                     $scope.$parent.message = null;
                     var pageScope = $scope.$parent;
-                    var shaObj = new jsSHA("SHA-512", "TEXT");
-                    shaObj.update(pageScope.uname + pageScope.sSalt + pageScope.sPassword);
-                    var sSha1 = shaObj.getHash("HEX");
+                    var sSha1 = getSha1(pageScope.uname, pageScope.sSalt, pageScope.sPassword);
                     $http.get("/checklogin/" + pageScope.uname + "/" + sSha1).success(function(sData){
                         window.location.href = "/";
                     }).error(function(){

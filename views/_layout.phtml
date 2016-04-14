@@ -26,6 +26,14 @@
         <script type="text/javascript" src="js/move-top.js"></script>
         <script type="text/javascript" src="js/easing.js"></script>
         <script type="text/javascript" src="js/sha512.js"></script>
+        <script>
+            var getSha1 = function(sUname, sSalt, sPwd){
+                var shaObj = new jsSHA("SHA-512", "TEXT");
+                shaObj.update(sUname + sSalt + sPwd);
+                return shaObj.getHash("HEX");
+
+            };
+        </script>
         <script type="text/javascript" src="js/angular.min.js"></script>
         <script type="text/javascript" src="js/angular-route.min.js"></script>
         <script type="text/javascript">
