@@ -2,35 +2,37 @@
 $this->data["title"] = "Kitchener Master Gardeners";
 $this->layout("_layout.phtml");
 ?>
-<body>
-	<div class="baner about-bnr">
-		<div class="container">
-			<div class="baner-grids">
-				<div class="col-md-6 baner-top">
-					<img src="images/img16.jpg" alt=""/>
-				</div>
-				<div class="col-md-6 baner-top">
-					<img src="images/img17.jpg" alt=""/>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
+<div class="baner about-bnr">
+    <div class="container">
+        <div class="baner-grids">
+            <div class="col-md-6 baner-top">
+                <img src="images/img16.jpg" alt=""/>
+            </div>
+            <div class="col-md-6 baner-top">
+                <img src="images/img17.jpg" alt=""/>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
 
 <!--================================================== news ======================================== -->
-    <div class="contact">
-        <div class="container">
-                <h3 class="title">Upcoming Events and Workshops</h3>
-                    <div class="news">
-                        <h4 class="activitie">New Event</h4>
-                            <div class="text">
-                            <h3>please click on the "Agenda" button to see the activities in detaill</h3>
-                         </div>
-                        <center>
-                       <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=is0r4td9scjg3bakvmr96crr9s%40group.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FToronto" style="border: solid 1px black" width="100%" height="600" font-size="34px" frameborder="1" scrolling="no"></iframe>
-                        </center>
-                    </div>
+<div class="contact">
+    <div class="container">
+        <h3 class="title">Upcoming Events and Workshops</h3>
+        <div class="news">
+            <?php if(isset($_SESSION["currentUser"]) && $_SESSION["currentUser"]->bVolunteer == 1){
+                        ?>
+            <a class="btn btn-default"  data-toggle="modal" data-target="#editHours">Make a Calendar Request</a>
+            <?php } ?>
+            <div class="text">
+                <h3>please click on the "Agenda" button to see the activities in detaill</h3>
+            </div>
+            <center>
+                <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=is0r4td9scjg3bakvmr96crr9s%40group.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FToronto" style="border: solid 1px black" width="100%" height="600" font-size="34px" frameborder="1" scrolling="no"></iframe>
+            </center>
         </div>
+    </div>
     <div class="about-slid2" style="margin-top:10em">
         <div class="container"></div>
     </div>
@@ -38,22 +40,44 @@ $this->layout("_layout.phtml");
 
 
 
-        <div class="about">
-            <div class="container">
-                <h3 class="title">Master Gardeners News</h3>
-                <div class="about-text">
-                    <div class="col-md-6 about-text-left">
-                        <img src="images/seven.jpg" class="img-responsive" style="border: solid black 1px"; alt="begonia"/>
-                    </div>
-                    <div class="col-md-6 about-text-right">
-                        <h4 class="widge">News Update</h4>
-                        <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:100%;background-color:#FAFAA0; border:1px solid #0F9946;"><div id="rsswidget" style="height:585px;"><iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1460256002747&amp;x=https%3A%2F%2Fnews.google.ca%2Fnews%3Fcf%3Dall%26hl%3Des%26pz%3D1%26ned%3Des_us%26q%3DGardeners%2Bof%2BOntario%26output%3Drss&amp;w=250&amp;h=500&amp;bc=0F9946&amp;bw=2&amp;bgc=FAF5CB&amp;m=6&amp;it=true&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=12&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:100%; height:585px;" id="rssOutput">Reading RSS Feed ...</iframe></div><div style="text-align:right;margin-bottom:0;border-top:2px solid #0F9946;" id="widgetbottom"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>
-                    </div>
-                    <div class="clearfix"> </div>
+    <div class="about">
+        <div class="container">
+            <h3 class="title">Master Gardeners News</h3>
+            <div class="about-text">
+                <div class="col-md-6 about-text-left">
+                    <img src="images/seven.jpg" class="img-responsive" style="border: solid black 1px"; alt="begonia"/>
                 </div>
+                <div class="col-md-6 about-text-right">
+                    <h4 class="widge">News Update</h4>
+                    <div id="widgetmain" style="text-align:left;overflow-y:auto;overflow-x:hidden;width:100%;background-color:#FAFAA0; border:1px solid #0F9946;"><div id="rsswidget" style="height:585px;"><iframe src="http://us1.rssfeedwidget.com/getrss.php?time=1460256002747&amp;x=https%3A%2F%2Fnews.google.ca%2Fnews%3Fcf%3Dall%26hl%3Des%26pz%3D1%26ned%3Des_us%26q%3DGardeners%2Bof%2BOntario%26output%3Drss&amp;w=250&amp;h=500&amp;bc=0F9946&amp;bw=2&amp;bgc=FAF5CB&amp;m=6&amp;it=true&amp;t=(default)&amp;tc=333333&amp;ts=15&amp;tb=transparent&amp;il=true&amp;lc=0000FF&amp;ls=14&amp;lb=false&amp;id=true&amp;dc=333333&amp;ds=12&amp;idt=true&amp;dtc=284F2D&amp;dts=12" border="0" hspace="0" vspace="0" frameborder="no" marginwidth="0" marginheight="0" style="border:0; padding:0; margin:0; width:100%; height:585px;" id="rssOutput">Reading RSS Feed ...</iframe></div><div style="text-align:right;margin-bottom:0;border-top:2px solid #0F9946;" id="widgetbottom"><span style="font-size:70%"><a href="http://www.rssfeedwidget.com">rss feed widget</a>&nbsp;</span><br></div></div>
+                </div>
+                <div class="clearfix"> </div>
             </div>
+        </div>
 
+    </div>
+</div>
+
+
+<!-- Calendar request -->
+<div class="modal fade" id="editHours" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Volunteer Hours</h4>
+            </div>
+            <div class="modal-body">
+                <p>a table of the hours with form fields to add more hours would go here</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-floppy-o"></i></i>&nbsp;Save</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
         </div>
     </div>
-</body>
 
+</div>
+
+</div>

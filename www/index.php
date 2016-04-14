@@ -33,7 +33,7 @@ $oApp->post("/login", function()use($oApp, $oDb){
 });
 
 $oApp->get("/users", function()use($oApp, $oDb){
-    if($_SESSION["currentUser"]->bAdmin != "true"){
+    if(!array_key_exists("currentUser", $_SESSION) || $_SESSION["currentUser"]->bAdmin != 1){
         $oApp->halt(403, "unauthorized");
     }
     $oStmt = $oDb->prepare("SELECT id, name, message, bPending, bAdmin, bVolunteer FROM users ORDER BY name");
@@ -42,7 +42,7 @@ $oApp->get("/users", function()use($oApp, $oDb){
 });
 
 $oApp->post("/users", function()use($oApp, $oDb){
-    if($_SESSION["currentUser"]->bAdmin != "true"){
+    if(!array_key_exists("currentUser", $_SESSION) || $_SESSION["currentUser"]->bAdmin != 1){
         $oApp->halt(403, "unauthorized");
     }
     $oUser = json_decode($oApp->request->getBody());
@@ -68,7 +68,7 @@ $oApp->get("/:page", function($sPage)use($oApp){
 });
 
 $oApp->get("/salt/:uname", function($sUname)use($oApp, $oDb){
-    $oStmt = $oDb->prepare('SELECT salt FROM users WHERE uname = :uname AND bPending = "false"');
+    $oStmt = $oDb->prepare('SELECT salt FROM users WHERE uname = :uname and NOT bPending = 1');
     $oStmt->bindParam("uname", $sUname);
     $oStmt->execute();
     $aUser = $oStmt->fetchAll(PDO::FETCH_OBJ);
@@ -81,7 +81,7 @@ $oApp->get("/salt/:uname", function($sUname)use($oApp, $oDb){
 });
 
 $oApp->get("/checklogin/:uname/:sha1", function($sUname, $sSha1)use($oApp, $oDb){
-    $oStmt = $oDb->prepare('SELECT * FROM users WHERE uname = :uname and sha1 = :sha1 AND bPending = "false"');
+    $oStmt = $oDb->prepare('SELECT * FROM users WHERE uname = :uname and sha1 = :sha1 and NOT bPending = 1');
     $oStmt->bindParam("uname", $sUname);
     $oStmt->bindParam("sha1", $sSha1);
     $oStmt->execute();
