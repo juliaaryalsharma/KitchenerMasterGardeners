@@ -32,6 +32,11 @@ $oApp->post("/login", function()use($oApp, $oDb){
      }
 });
 
+$oApp->get("/users", function()use($oApp, $oDb){
+    $oStmt = $oDb->prepare("SELECT id, name, bPending, bAdmin, bVolunteer FROM users ORDER BY name");
+    $oStmt->execute();
+    echo json_encode($oStmt->fetchAll(PDO::FETCH_OBJ));
+});
 $oApp->get("/currentUser", function(){
     echo json_encode($_SESSION["currentUser"]);
 });

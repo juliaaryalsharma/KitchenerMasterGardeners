@@ -2,46 +2,55 @@
 $this->data["title"] = "Kitchener Master Gardeners";
 $this->layout("_layout.phtml");
 ?>
-<div class="contact">
+<script>
+
+    angular.module('myApp', []).controller("myController", function ($scope, $http) {
+        $http.get("/users").success(function(oData){
+            for(var i = 0; i < oData.length; i++){
+                if(oData[i].bPending == "true")oData[i].bPending = true;
+                else oData[i].bPending = false;
+                if(oData[i].bAdmin == "true")oData[i].bAdmin = true;
+                else oData[i].bAdmin = false;
+                if(oData[i].bVolunteer == "true")oData[i].bVolunteer = true;
+                else oData[i].bVolunteer = false;
+            }
+            $scope.users = oData;
+        });
+    });
+</script>
+<div ng-app="myApp" ng-controller="myController" class="contact">
     <div class="container">
         <h3 class="title">General Inquiries</h3>
-
-<!----============================ HEAD ==================-->
- <!------------------------------------------------next form ========================---------------->
-                        </div>
-=======
-        <div class="baner-grids">
-            <div class="contact-form">
-                <div class="news">
-                    <div class="text">
-                        <h3>Members Information</h3>
->>>>>>> origin/master
-                    </div>
-                    <form>
-                        <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-                        <input type="text" value="Address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Address';}" required="">
-                        <div class="col-md-6 cnt-inpt">
-                            <input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-                        </div>
-                        <div class="col-md-6 cnt-inpt">
-                            <input type="text" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-                        </div>
-                        <div class="col-md-6 cnt-inpt">
-                            <h6>Date Of Birth : <span class="label label-default"></span></h6><input type="Date" value="Date Of Birth" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'DateOfBirth';}" required="">
-                        </div>
-                        <div class="clearfix"> </div>
-                        <textarea onfocus="this.value = '' ;" onblur="if (this.value == '') {this.value = 'AdditonalInformation...';}" required=""> Additional Information </textarea>
-                        <input type="submit" value="Edit">
-                        <input type="submit" value="Add">
-                        <input type="submit" value="Delete">
-                        <input type="submit" value="Members List">
-                    </form>
-
+    </div>
+    <div class="baner-grids">
+        <div class="contact-form">
+            <div class="news">
+                <div class="text">
+                    <h3>Members Information</h3>
                 </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Pending</th>
+                            <th>Admin</th>
+                            <th>Volunteer</th>
+
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="(n, user) in users track by n" ng-cloak>
+                        <td>{{user.name}}</td>
+                        <td><input type="checkbox" ng-model="user.bPending" /></td>
+                        <td><input type="checkbox" ng-model="user.bAdmin" /></td>
+                        <td><input type="checkbox" ng-model="user.bVolunteer" /></td>
+                    </tr>
+
+                </table>
             </div>
         </div>
     </div>
 </div>
+
 
 
 
