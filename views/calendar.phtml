@@ -6,13 +6,21 @@ $this->layout("_layout.phtml");
 <script>
     angular.module('myApp', []).controller("myController", function ($scope, $http) {
         <?php if(array_key_exists("currentUser", $_SESSION)){
-            $oCur = $_SESSION["currentUser"];
-        ?>
+            $oCur = $_SESSION["currentUser"]; ?>
             $scope.message = {};
             $scope.message.email = "<?php echo $oCur->email ?>";
+            $scope.message.subject = "Calendar request from <?php echo $oCur->name ?>";
         <?php } ?>        
         $scope.sendRequest = function(){
-            alert("request");
+            $http({method: 'GET', url: 'https://rich-hildred.rhcloud.com/Mailer/c512c9f7', params: $scope.message}).success(function(oData){
+                console.log(oData);
+                toastr.info(oData.result);
+                $scope.message.message = "";
+            }).
+            error(function(oData){
+                console.log(oData);
+                toastr.error(JSON.stringify(oData));
+            });
         };
     });
 </script>
