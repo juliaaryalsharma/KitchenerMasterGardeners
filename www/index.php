@@ -18,8 +18,9 @@ $oApp->get("/logout", function()use($oApp){
 
 $oApp->post("/login", function()use($oApp, $oDb){
     $oUser = json_decode($oApp->request->getBody());
-    $oStmt = $oDb->prepare('INSERT into users(name, uname, salt, sha1, message) VALUES(:name, :uname, :salt, :pwd, :message)');
+    $oStmt = $oDb->prepare('INSERT into users(name, email, uname, salt, sha1, message) VALUES(:name, :email, :uname, :salt, :pwd, :message)');
     $oStmt->bindParam("name", $oUser->name);
+    $oStmt->bindParam("email", $oUser->email);
     $oStmt->bindParam("uname", $oUser->sUname);
     $oStmt->bindParam("salt", $oUser->sSalt);
     $oStmt->bindParam("pwd", $oUser->sSha1);

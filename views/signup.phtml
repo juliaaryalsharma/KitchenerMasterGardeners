@@ -9,7 +9,7 @@ $this->layout("_layout.phtml");
         $scope.successMessage = null;
         $scope.httpModel = {};
         $scope.submitSignup = function(){
-            if($scope.model.email1 != $scope.model.email2){
+            if($scope.httpModel.email != $scope.model.email2){
                 $scope.errorMessage = "emails must match";
                 return;
             }
@@ -54,7 +54,7 @@ $this->layout("_layout.phtml");
                         <div class="form-group">
                             <label for="InputEmail">Enter Email</label>
                             <div class="input-group">
-                                <input type="email" class="form-control" id="InputEmail" ng-model="model.email1" placeholder="Enter Email" required>
+                                <input type="email" class="form-control" id="InputEmail" ng-model="httpModel.email" placeholder="Enter Email" required>
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-star"></span></span>
                             </div>
                         </div>
