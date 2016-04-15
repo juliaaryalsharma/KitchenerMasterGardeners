@@ -9,7 +9,7 @@ $this->layout("_layout.phtml");
             $oCur = $_SESSION["currentUser"];
         ?>
             $scope.message = {};
-            $scope.message.email = "<?php print_r($oCur) ?>";
+            $scope.message.email = "<?php echo $oCur->email ?>";
         <?php } ?>        
         $scope.sendRequest = function(){
             alert("request");
